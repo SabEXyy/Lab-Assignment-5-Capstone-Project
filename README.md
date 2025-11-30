@@ -10,6 +10,6 @@ Features:
 - Email signup form
 - Mobile responsive
 
-Live: https://shivamm-cyber.github.io/dating-app-shivam
+Live: (https://sabexyy.github.io/Lab-Assignment-5-Capstone-Project/)
 
 By Shourya | BCA Cybersecurity
