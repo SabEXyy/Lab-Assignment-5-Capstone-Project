@@ -1,2 +1,15 @@
 # Lab-Assignment-5-Capstone-Project
- Fully responsive dating app landing page (Tinder style)– HTML5 &amp; CSS3 capstone using Flexbox + Grid
+# Spark – Modern Dating App UI
+
+Fully responsive dating app landing page (Tinder style)  
+Built with pure HTML5 & CSS3 | Flexbox + Grid | Hover effects
+
+Features:
+- Profile cards with swipe buttons
+- Hero section + CTA
+- Email signup form
+- Mobile responsive
+
+Live: https://shivamm-cyber.github.io/dating-app-shivam
+
+By Shourya | BCA Cybersecurity
