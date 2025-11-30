@@ -1,0 +1,51 @@
+:root {
+  --pink: #ff6b9d;
+  --purple: #a29bfe;
+  --dark: #2d3436;
+  --light: #f5f6fa;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.skip-link { position: absolute; top: -40px; background: var(--pink); color: white; padding: 10px; }
+.skip-link:focus { top: 10px; }
+
+.header { background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.1); padding: 1rem 0; position: sticky; top: 0; z-index: 100; }
+.header .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 2rem; font-weight: 700; color: var(--pink); }
+nav ul { display: flex; gap: 2rem; list-style: none; }
+nav a { text-decoration: none; color: var(--dark); font-weight: 500; }
+
+.hero { text-align: center; padding: 4rem 1rem; background: linear-gradient(135deg, var(--pink), var(--purple)); color: white; }
+.hero h2 { font-size: 3rem; margin-bottom: 1rem; }
+.cta { background: white; color: var(--pink); padding: 1rem 3rem; border: none; border-radius: 50px; font-size: 1.2rem; margin-top: 1rem; cursor: pointer; }
+
+.section-title { text-align: center; font-size: 2.5rem; margin: 3rem 0; }
+
+.profile-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.profile-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; }
+.profile-card img { width: 100%; height: 400px; object-fit: cover; }
+.info { padding: 1.5rem; text-align: center; }
+.info h3 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.info p { color: #666; margin: 0.5rem 0; }
+
+.actions { position: absolute; bottom: 20px; left: 0; right: 0; display: flex; justify-content: center; gap: 1.5rem; }
+.actions button { width: 60px; height: 60px; border-radius: 50%; border: none; font-size: 1.8rem; cursor: pointer; transition: 0.3s; }
+.dislike { background: #ddd; }
+.superlike { background: #ffe66d; color: #2d3436; }
+.like { background: var(--pink); color: white; }
+.actions button:hover { transform: scale(1.2); }
+
+.cta-section { text-align: center; padding: 4rem 1rem; background: var(--dark); color: white; }
+.signup-form { max-width: 500px; margin: 2rem auto; display: flex; gap: 1rem; }
+.signup-form input { flex: 1; padding: 1rem; border-radius: 50px; border: none; }
+.signup-form button { background: var(--pink); color: white; padding: 1rem 2rem; border-radius: 50px; border: none; cursor: pointer; }
+
+footer { text-align: center; padding: 2rem; background: var(--dark); color: white; }
+
+@media (max-width: 768px) {
+  .header .container { flex-direction: column; gap: 1rem; }
+  .hero h2 { font-size: 2.2rem; }
+}
