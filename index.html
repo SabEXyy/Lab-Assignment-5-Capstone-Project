@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Spark – Find Your Match ❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Poppins', sans-serif; background: #121212; color: white; overflow-x: hidden; }
@@ -13,7 +12,7 @@
 
     .header { text-align: center; margin-bottom: 20px; }
     .header h1 { font-size: 3rem; color: #ff6b9d; }
-    .stats { margin-top: 10px; font-size: 1.st1rem; }
+    .stats { margin-top: 10px; font-size: 1.1rem; }
 
     .profile-stack { flex: 1; position: relative; }
     .card { 
@@ -21,7 +20,7 @@
       background: white; color: #333; border-radius: 20px; overflow: hidden;
       box-shadow: 0 20px 40px rgba(0,0,0,0.6); transition: transform 0.6s ease;
     }
-    .card img { width: 100%; height: 65%; object-fit: cover; }
+    .card img { width: 100%; height: 65%; object-fit: cover; background: #eee; /* Fallback color */ }
     .info { padding: 20px; text-align: left; }
     .info h2 { font-size: 2rem; margin-bottom: 5px; }
     .info p { margin: 8px 0; opacity: 0.8; }
@@ -68,7 +67,6 @@
     .match-content h2 { color: #ff6b9d; font-size: 2.5rem; }
     .match-content button { background: #ff6b9d; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 1.2rem; margin-top: 20px; cursor: pointer; }
   </style>
-</style>
 </head>
 <body>
   <div class="container">
@@ -82,7 +80,7 @@
 
     <main class="profile-stack">
       <div class="card" data-name="Ananya">
-        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800" alt="Ananya">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Ananya" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIGxvYWRpbmcgZmFpbGVkPC90ZXh0Pjwvc3ZnPg=='">
         <div class="info">
           <h2>Ananya, 22</h2>
           <p>Delhi • Graphic Designer</p>
@@ -96,7 +94,7 @@
       </div>
 
       <div class="card" data-name="Rohan">
-        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800" alt="Rohan">
+        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Rohan" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIGxvYWRpbmcgZmFpbGVkPC90ZXh0Pjwvc3ZnPg=='">
         <div class="info">
           <h2>Rohan, 24</h2>
           <p>Mumbai • Fitness Trainer</p>
@@ -110,7 +108,7 @@
       </div>
 
       <div class="card" data-name="Priya">
-        <img src="https://images.unsplash.com/photo-1580489940923-5b7d2e9e9e8a?w=800" alt="Priya">
+        <img src="https://images.unsplash.com/photo-1580489940923-5b7d2e9e9e8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Priya" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjYwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIGxvYWRpbmcgZmFpbGVkPC90ZXh0Pjwvc3ZnPg=='">
         <div class="info">
           <h2>Priya, 21</h2>
           <p>Bangalore • Student</p>
@@ -123,10 +121,10 @@
         </div>
       </div>
 
-      <div class="no-more">No more profiles nearby 😢</div>
+      <div class="no-more" style="display: none;">No more profiles nearby 😢</div>
     </main>
 
-    <div class="match-popup" id="match-popup">
+    <div class="match-popup" id="match-popup" style="display: none;">
       <div class="match-content">
         <h2>It's a Match! 🎉</h2>
         <p>You and <span id="match-name"></span> liked each other!</p>
