@@ -1,98 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spark – Find Your Match ❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechMart - Premium Electronics Store</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <header class="header">
-    <div class="container">
-      <h1 class="logo">Spark 🔥</h1>
+    <div class="container header-container">
+      <div class="logo"><h2>TechMart</h2></div>
       <nav>
-        <ul>
-          <li><a href="#">Matches</a></li>
-          <li><a href="#">Messages</a></li>
-          <li><a href="#">Profile</a></li>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+      <div class="cart-icon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+      </div>
     </div>
   </header>
 
-  <main id="main" class="main">
-    <div class="container">
-      <section class="hero">
-        <h2>Find Your Perfect Match Today</h2>
-        <p>Swipe, Match, Chat – Love is just one spark away ❤️</p>
-        <button class="cta">Get Started</button>
-      </section>
-
-      <section class="profiles">
-        <h2 class="section-title">People Near You</h2>
-        <div class="profile-grid">
-          <!-- Profile Card 1 -->
-          <article class="profile-card">
-            <img src="https://via.placeholder.com/400x500/ff6b9d/ffffff?text=Ananya+22" alt="Ananya, 22">
-            <div class="info">
-              <h3>Ananya, 22</h3>
-              <p>Delhi | Graphic Designer</p>
-              <p>"Coffee, sunsets & deep talks ☕🌅"</p>
-            </div>
-            <div class="actions">
-              <button class="dislike">✕</button>
-              <button class="superlike">⭐</button>
-              <button class="like">❤️</button>
-            </div>
-          </article>
-
-          <!-- Profile Card 2 -->
-          <article class="profile-card">
-            <img src="https://via.placeholder.com/400x500/c8f6c8/000000?text=Rohan+24" alt="Rohan, 24">
-            <div class="info">
-              <h3>Rohan, 24</h3>
-              <p>Mumbai | Fitness Trainer</p>
-              <p>"Gym, Travel, Foodie 🏋️✈️"</p>
-            </div>
-            <div class="actions">
-              <button class="dislike">✕</button>
-              <button class="superlike">⭐</button>
-              <button class="like">❤️</button>
-            </div>
-          </article>
-
-          <!-- Profile Card 3 -->
-          <article class="profile-card">
-            <img src="https://via.placeholder.com/400x500/a29bfe/ffffff?text=Priya+21" alt="Priya, 21">
-            <div class="info">
-              <h3>Priya, 21</h3>
-              <p>Bangalore | Student</p>
-              <p>"Books, Music & Midnight Drives 📚🎧"</p>
-            </div>
-            <div class="actions">
-              <button class="dislike">✕</button>
-              <button class="superlike">⭐</button>
-              <button class="like">❤️</button>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="cta-section">
-        <h2>Ready to Find Love?</h2>
-        <form class="signup-form">
-          <input type="email" placeholder="Enter your email" required>
-          <button type="submit">Join Spark Free</button>
-        </form>
-      </section>
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1>Latest Gadgets at Unbeatable Prices</h1>
+        <p>Up to 50% off on smartphones, laptops & accessories</p>
+        <a href="#products" class="btn-primary">Shop Now</a>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern tech gadgets display">
+      </div>
     </div>
-  </main>
+  </section>
 
-  <footer>
-    <p>© 2025 Spark – Made with ❤️ by Shourya</p>
+  <section id="products" class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Products</h2>
+      <div class="products-grid">
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="iPhone 15 Pro - High-end smartphone">
+          <div class="card-body">
+            <h3>iPhone 15 Pro</h3>
+            <p>Advanced smartphone with A17 Pro chip</p>
+            <div class="price">$1299</div>
+            <button class="btn-secondary" onclick="addToCart('iPhone 15 Pro', 1299)">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="MacBook Air M3 - Laptop">
+          <div class="card-body">
+            <h3>MacBook Air M3</h3>
+            <p>Lightweight laptop with M3 chip</p>
+            <div class="price">$1099 <del>$1399</del></div>
+            <button class="btn-secondary" onclick="addToCart('MacBook Air M3', 1099)">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="AirPods Pro 2 - Wireless earbuds">
+          <div class="card-body">
+            <h3>AirPods Pro 2</h3>
+            <p>Noise-cancelling wireless earbuds</p>
+            <div class="price">$249</div>
+            <button class="btn-secondary" onclick="addToCart('AirPods Pro 2', 249)">Add to Cart</button>
+          </div>
+        </article>
+        <article class="product-card">
+          <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Samsung Galaxy S24 Ultra - Smartphone">
+          <div class="card-body">
+            <h3>Samsung S24 Ultra</h3>
+            <p>Flagship Android phone with S Pen</p>
+            <div class="price">$1199</div>
+            <button class="btn-secondary" onclick="addToCart('Samsung S24 Ultra', 1199)">Add to Cart</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter section bg-light">
+    <div class="container">
+      <h2 class="section-title">Subscribe for Exclusive Deals</h2>
+      <form class="subscribe-form" onsubmit="subscribe(event)">
+        <input type="email" id="email" placeholder="Enter your email" required aria-label="Email for newsletter">
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeCart()">&times;</span>
+      <h2>Your Cart (<span id="modal-cart-count">0</span>)</h2>
+      <div id="cart-items"></div>
+      <div class="cart-total">
+        <h3>Total: $<span id="cart-total">0</span></h3>
+        <button class="checkout-btn" onclick="checkout()">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 TechMart. Made by Shivam</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    let cart = [];
+
+    function addToCart(product, price) {
+      cart.push({ product, price });
+      document.getElementById('cart-count').textContent = cart.length;
+      alert(`${product} added to cart! 🛒`);
+    }
+
+    function toggleCart() {
+      const modal = document.getElementById('cart-modal');
+      const items = document.getElementById('cart-items');
+      const total = document.getElementById('cart-total');
+      const count = document.getElementById('modal-cart-count');
+
+      if (cart.length === 0) {
+        items.innerHTML = '<p>Your cart is empty 😢</p>';
+        total.textContent = '0';
+        count.textContent = '0';
+      } else {
+        let html = '';
+        let sum = 0;
+        cart.forEach((item, i) => {
+          html += `<div class="cart-item">
+            <span>${item.product} - $${item.price}</span>
+            <button onclick="removeItem(${i})">Remove</button>
+          </div>`;
+          sum += item.price;
+        });
+        items.innerHTML = html;
+        total.textContent = sum;
+        count.textContent = cart.length;
+      }
+      modal.style.display = 'block';
+    }
+
+    function removeItem(index) {
+      const removed = cart[index].product;
+      cart.splice(index, 1);
+      document.getElementById('cart-count').textContent = cart.length;
+      alert(`${removed} removed from cart.`);
+      toggleCart();
+    }
+
+    function closeCart() {
+      document.getElementById('cart-modal').style.display = 'none';
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert('Cart is empty!');
+        return;
+      }
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+      alert(`Checkout successful! Total: $${total} 🎉`);
+      cart = [];
+      document.getElementById('cart-count').textContent = '0';
+      closeCart();
+    }
+
+    function subscribe(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      alert(`Subscribed with ${email}! Welcome to TechMart.`);
+      document.getElementById('email').value = '';
+    }
+
+    window.onclick = (e) => {
+      if (e.target.id === 'cart-modal') closeCart();
+    };
+  </script>
 </body>
 </html>
