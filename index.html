@@ -6,7 +6,69 @@
   <title>Spark – Find Your Match ❤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #121212; color: white; overflow-x: hidden; }
+    .container { max-width: 500px; margin: 0 auto; padding: 20px; height: 100vh; display: flex; flex-direction: column; }
+
+    .header { text-align: center; margin-bottom: 20px; }
+    .header h1 { font-size: 3rem; color: #ff6b9d; }
+    .stats { margin-top: 10px; font-size: 1.st1rem; }
+
+    .profile-stack { flex: 1; position: relative; }
+    .card { 
+      position: absolute; top: 0; left: 0; width: 100%; height: 90%; 
+      background: white; color: #333; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6); transition: transform 0.6s ease;
+    }
+    .card img { width: 100%; height: 65%; object-fit: cover; }
+    .info { padding: 20px; text-align: left; }
+    .info h2 { font-size: 2rem; margin-bottom: 5px; }
+    .info p { margin: 8px 0; opacity: 0.8; }
+    .bio { font-style: italic; margin-top: 15px; font-size: 1.1rem; }
+
+    .actions { 
+      position: absolute; bottom: 30px; left: 0; right: 0; 
+      display: flex; justify-content: center; gap: 25px;
+    }
+    .actions button { 
+      width: 70px; height: 70px; border-radius: 50%; border: none; 
+      font-size: 2rem; cursor: pointer; transition: 0.3s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    }
+    .btn-pass { background: #ff4757; }
+    .btn-super { background: #3742fa; color: white; }
+    .btn-like { background: #ff6b9d; }
+
+    .like-animation { animation: likeSwipe 0.6s forwards; }
+    .pass-animation { animation: passSwipe 0.6s forwards; }
+    .superlike-animation { animation: superLikeSwipe 0.8s forwards; }
+
+    @keyframes likeSwipe { 
+      0% { transform: translateX(0) rotate(0); }
+      100% { transform: translateX(1000px) rotate(30deg); opacity: 0; }
+    }
+    @keyframes passSwipe { 
+      0% { transform: translateX(0) rotate(0); }
+      100% { transform: translateX(-1000px) rotate(-30deg); opacity: 0; }
+    }
+    @keyframes superLikeSwipe { 
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-200px) scale(1.3); }
+      100% { transform: translateY(1000px) scale(0.8); opacity: 0; }
+    }
+
+    .no-more { text-align: center; font-size: 1.5rem; margin-top: 50%; opacity: 0.7; }
+
+    .match-popup { 
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9); align-items: center; justify-content: center; z-index: 100;
+    }
+    .match-content { background: white; color: #333; padding: 40px; border-radius: 20px; text-align: center; }
+    .match-content h2 { color: #ff6b9d; font-size: 2.5rem; }
+    .match-content button { background: #ff6b9d; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 1.2rem; margin-top: 20px; cursor: pointer; }
+  </style>
+</style>
 </head>
 <body>
   <div class="container">
@@ -19,8 +81,7 @@
     </header>
 
     <main class="profile-stack">
-      <!-- Profile Cards -->
-      <div class="card" data-name="Ananya, 22">
+      <div class="card" data-name="Ananya">
         <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800" alt="Ananya">
         <div class="info">
           <h2>Ananya, 22</h2>
@@ -34,7 +95,7 @@
         </div>
       </div>
 
-      <div class="card" data-name="Rohan, 24">
+      <div class="card" data-name="Rohan">
         <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800" alt="Rohan">
         <div class="info">
           <h2>Rohan, 24</h2>
@@ -48,7 +109,7 @@
         </div>
       </div>
 
-      <div class="card" data-name="Priya, 21">
+      <div class="card" data-name="Priya">
         <img src="https://images.unsplash.com/photo-1580489940923-5b7d2e9e9e8a?w=800" alt="Priya">
         <div class="info">
           <h2>Priya, 21</h2>
@@ -114,8 +175,8 @@
     }
 
     function randomMatch() {
-      if (Math.random() > 0.7) {
-        const name = document.querySelector('.card:not(.removed)')?.dataset.name.split(',')[0] || "Someone";
+      if (Math.random() > 0.6) {
+        const name = document.querySelector('.card:not(.removed)')?.dataset.name || "Someone";
         document.getElementById('match-name').textContent = name;
         document.getElementById('match-popup').style.display = 'flex';
       }
