@@ -3,212 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spark - Find Your Match ❤️</title>
+  <title>Spark - Find Your Match</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Poppins', sans-serif; background: #121212; color: white; overflow-x: hidden; height: 100vh; display: flex; flex-direction: column; }
-    .header { text-align: center; padding: 20px; background: #000; }
-    .header h1 { font-size: 2.8rem; color: #ff6b9d; }
-    .stats { font-size: 1.2rem; margin-top: 10px; }
-    .stats strong { color: #ff6b9d; }
-
-    .profile-stack { flex: 1; position: relative; padding: 20px; }
-    .card { 
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      width: 90%; max-width: 380px; height: 85vh; max-height: 600px;
-      background: white; color: #333; border-radius: 20px; overflow: hidden;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.7); transition: all 0.6s ease;
+    body { font-family: 'Poppins', sans-serif; background: #121212; color: white; min-height: 100vh; padding: 20px; }
+    header { text-align: center; margin-bottom: 30px; }
+    header h1 { font-size: 3rem; color: #ff6b9d; }
+    .container { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+    
+    .profile {
+      background: white; color: #333; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      text-align: center;
     }
-    .card img { width: 100%; height: 70%; object-fit: cover; }
-    .info { padding: 20px; text-align: left; }
-    .info h2 { font-size: 2rem; margin-bottom: 5px; }
-    .info p { margin: 5px 0; opacity: 0.8; }
-    .bio { font-style: italic; margin-top: 15px; font-size: 1.1rem; }
-
-    .actions { 
-      position: absolute; bottom: 30px; left: 0; right: 0; 
-      display: flex; justify-content: center; gap: 30px;
+    .profile img {
+      width: 100%; height: 350px; object-fit: cover;
     }
-    .actions button { 
-      width: 70px; height: 70px; border-radius: 50%; border: none; 
-      font-size: 2rem; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    .info {
+      padding: 20px;
     }
-    .btn-pass { background: #ff4757; }
-    .btn-super { background: #3742fa; color: white; }
-    .btn-like { background: #ff6b9d; }
-
-    .like-animation { animation: likeSwipe 0.6s forwards; }
-    .pass-animation { animation: passSwipe 0.6s forwards; }
-    .superlike-animation { animation: superLikeSwipe 0.8s forwards; }
-
-    @keyframes likeSwipe { 0% { transform: translate(-50%, -50%) rotate(0); } 100% { transform: translate(1000px, -50%) rotate(30deg); opacity: 0; } }
-    @keyframes passSwipe { 0% { transform: translate(-50%, -50%) rotate(0); } 100% { transform: translate(-1000px, -50%) rotate(-30deg); opacity: 0; } }
-    @keyframes superLikeSwipe { 0% { transform: translate(-50%, -50%) scale(1); } 100% { transform: translate(-50%, -1000px) scale(0.5); opacity: 0; } }
-
-    .no-more { text-align: center; font-size: 1.8rem; margin-top: 40%; opacity: 0.7; }
-
-    .match-popup { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 100; align-items: center; justify-content: center; }
-    .match-content { background: white; color: #333; padding: 40px; border-radius: 20px; text-align: center; }
-    .match-content h2 { color: #ff6b9d; font-size: 2.5rem; }
-    .match-content button { background: #ff6b9d; color: white; border: none; padding: 15px 30px; border-radius: 50px; font-size: 1.2rem; margin-top: 20px; cursor: pointer; }
+    .info h2 { font-size: 1.8rem; margin-bottom: 8px; color: #333; }
+    .info p { margin: 8px 0; color: #666; font-size: 1rem; }
+    .bio { font-style: italic; color: #888; margin-top: 10px; }
+    
+    .buttons {
+      padding: 15px;
+      display: flex; justify-content: center; gap: 20px;
+    }
+    .buttons button {
+      width: 70px; height: 70px; border-radius: 50%; border: none; font-size: 2rem; cursor: pointer;
+    }
+    .pass { background: #ff4757; color: white; }
+    .like { background: #ff6b9d; color: white; }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>Spark 🔥</h1>
-    <div class="stats">
-      Likes: <strong id="like-count">0</strong> | Passes: <strong id="pass-count">0</strong>
-    </div>
-  </div>
+  <header>
+    <h1>Spark ❤️</h1>
+    <p>Find Your Match</p>
+  </header>
 
-  <div class="profile-stack">
+  <div class="container">
     <!-- 3 Girls -->
-    <div class="card" data-name="Ananya">
+    <div class="profile">
       <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800" alt="Ananya">
       <div class="info">
         <h2>Ananya, 22</h2>
         <p>Delhi • Designer</p>
-        <p class="bio">"Coffee, sunsets & deep talks ☕"</p>
+        <p class="bio">"Coffee & sunsets lover ☕"</p>
       </div>
-      <div class="actions">
-        <button class="btn-pass" onclick="pass()">✕</button>
-        <button class="btn-super" onclick="superLike()">⭐</button>
-        <button class="btn-like" onclick="like()">❤️</button>
+      <div class="buttons">
+        <button class="pass">✕</button>
+        <button class="like">❤️</button>
       </div>
     </div>
 
-    <div class="card" data-name="Priya">
+    <div class="profile">
       <img src="https://images.unsplash.com/photo-1580489940923-5b7d2e9e9e8a?w=800" alt="Priya">
       <div class="info">
         <h2>Priya, 21</h2>
         <p>Bangalore • Student</p>
-        <p class="bio">"Books & midnight drives 📚"</p>
+        <p class="bio">"Books & music addict 📚🎧"</p>
       </div>
-      <div class="actions">
-        <button class="btn-pass" onclick="pass()">✕</button>
-        <button class="btn-super" onclick="superLike()">⭐</button>
-        <button class="btn-like" onclick="like()">❤️</button>
+      <div class="buttons">
+        <button class="pass">✕</button>
+        <button class="like">❤️</button>
       </div>
     </div>
 
-    <div class="card" data-name="Neha">
+    <div class="profile">
       <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800" alt="Neha">
       <div class="info">
         <h2>Neha, 23</h2>
         <p>Mumbai • Photographer</p>
-        <p class="bio">"Capturing moments & chasing sunsets 📸"</p>
+        <p class="bio">"Chasing light & good vibes 📸"</p>
       </div>
-      <div class="actions">
-        <button class="btn-pass" onclick="pass()">✕</button>
-        <button class="btn-super" onclick="superLike()">⭐</button>
-        <button class="btn-like" onclick="like()">❤️</button>
+      <div class="buttons">
+        <button class="pass">✕</button>
+        <button class="like">❤️</button>
       </div>
     </div>
 
     <!-- 3 Boys -->
-    <div class="card" data-name="Rohan">
+    <div class="profile">
       <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=800" alt="Rohan">
       <div class="info">
         <h2>Rohan, 24</h2>
         <p>Mumbai • Fitness Trainer</p>
-        <p class="bio">"Gym & Adventure 🏋️♂️"</p>
+        <p class="bio">"Gym & adventure 🏋️♂️"</p>
       </div>
-      <div class="actions">
-        <button class="btn-pass" onclick="pass()">✕</button>
-        <button class="btn-super" onclick="superLike()">⭐</button>
-        <button class="btn-like" onclick="like()">❤️</button>
+      <div class="buttons">
+        <button class="pass">✕</button>
+        <button class="like">❤️</button>
       </div>
     </div>
 
-    <div class="card" data-name="Arjun">
+    <div class="profile">
       <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800" alt="Arjun">
       <div class="info">
         <h2>Arjun, 25</h2>
         <p>Delhi • Developer</p>
-        <p class="bio">"Code, Coffee, Repeat ☕"</p>
+        <p class="bio">"Code, coffee, repeat ☕"</p>
       </div>
-      <div class="actions">
-        <button class="btn-pass" onclick="pass()">✕</button>
-        <button class="btn-super" onclick="superLike()">⭐</button>
-        <button class="btn-like" onclick="like()">❤️</button>
+      <div class="buttons">
+        <button class="pass">✕</button>
+        <button class="like">❤️</button>
       </div>
     </div>
 
-    <div class="card" data-name="Vikram">
+    <div class="profile">
       <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800" alt="Vikram">
       <div class="info">
         <h2>Vikram, 23</h2>
         <p>Bangalore • Musician</p>
-        <p class="bio">"Guitar & Good Vibes 🎸"</p>
+        <p class="bio">"Guitar & good vibes 🎸"</p>
       </div>
-      <div class="actions">
-        <button class="btn-pass" onclick="pass()">✕</button>
-        <button class="btn-super" onclick="superLike()">⭐</button>
-        <button class="btn-like" onclick="like()">❤️</button>
+      <div class="buttons">
+        <button class="pass">✕</button>
+        <button class="like">❤️</button>
       </div>
-    </div>
-
-    <div class="no-more">No more profiles nearby 😢</div>
-  </div>
-
-  <div class="match-popup" id="match-popup">
-    <div class="match-content">
-      <h2>It's a Match! 🎉</h2>
-      <p>You and <span id="match-name"></span> liked each other!</p>
-      <button onclick="closeMatch()">Send Message</button>
     </div>
   </div>
 
-  <script>
-    let likeCount = 0, passCount = 0;
-
-    function like() {
-      const card = document.querySelector('.card:not(.removed)');
-      if (!card) return;
-      card.classList.add('like-animation', 'removed');
-      likeCount++;
-      document.getElementById('like-count').textContent = likeCount;
-      setTimeout(nextCard, 600);
-      randomMatch();
-    }
-
-    function pass() {
-      const card = document.querySelector('.card:not(.removed)');
-      if (!card) return;
-      card.classList.add('pass-animation', 'removed');
-      passCount++;
-      document.getElementById('pass-count').textContent = passCount;
-      setTimeout(nextCard, 600);
-    }
-
-    function superLike() {
-      const card = document.querySelector('.card:not(.removed)');
-      if (!card) return;
-      card.classList.add('superlike-animation', 'removed');
-      likeCount += 2;
-      document.getElementById('like-count').textContent = likeCount;
-      alert("Super Like sent! ✨");
-      setTimeout(nextCard, 800);
-    }
-
-    function nextCard() {
-      if (document.querySelectorAll('.card:not(.removed)').length === 0) {
-        document.querySelector('.no-more').style.display = 'block';
-      }
-    }
-
-    function randomMatch() {
-      if (Math.random() > 0.5) {
-        const name = document.querySelector('.card:not(.removed)')?.dataset.name || "someone";
-        document.getElementById('match-name').textContent = name;
-        document.getElementById('match-popup').style.display = 'flex';
-      }
-    }
-
-    function closeMatch() {
-      document.getElementById('match-popup').style.display = 'none';
-    }
-  </script>
+  <footer style="text-align:center; margin-top:40px; color:#888;">
+    <p>&copy; 2025 Spark Dating App • Made by Shourya</p>
+  </footer>
 </body>
 </html>
